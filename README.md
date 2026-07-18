@@ -6,10 +6,10 @@
 
 | 服务 | 地址 |
 |------|------|
-| 🌐 前端 Demo | **[待部署后更新]** |
-| 🔗 后端 API | **[待部署后更新]** |
+| 🌐 前端 Demo | **https://aitodo-app-d2gde95an38836cd0-1455544512.tcloudbaseapp.com** |
+| 🔗 后端 API | 本地运行 `python backend/app.py` |
 
-> 前端部署至 Cloudflare Pages，后端部署至 Render.com
+> 前端部署至腾讯云 CloudBase 静态网站托管，后端可在本地运行体验完整功能。
 
 ## 功能特性
 
