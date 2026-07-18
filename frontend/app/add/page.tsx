@@ -1,6 +1,7 @@
 'use client'
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
+import { apiPost } from '@/lib/api'
 
 export default function AddTodo() {
   const [title, setTitle] = useState('')
@@ -10,14 +11,7 @@ export default function AddTodo() {
     e.preventDefault()
     if (!title.trim()) return
 
-    fetch('http://localhost:5000/api/todos', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({ title })
-    })
-      .then(res => res.json())
+    apiPost('/api/todos', { title })
       .then(() => {
         router.push('/')  // 添加成功跳回首页
       })

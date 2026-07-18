@@ -1,5 +1,6 @@
 'use client'
 import { useEffect, useState } from 'react'
+import { apiGet, apiDelete } from '@/lib/api'
 
 interface Todo {
   id: number
@@ -12,16 +13,12 @@ export default function Home() {
 
   // 页面加载时获取待办列表
   useEffect(() => {
-    fetch('http://localhost:5000/api/todos')
-      .then(res => res.json())
-      .then(data => setTodos(data))
+    apiGet('/api/todos').then((data: Todo[]) => setTodos(data))
   }, [])
 
   // 删除待办
   const deleteTodo = (id: number) => {
-    fetch(`http://localhost:5000/api/todos/${id}`, {
-      method: 'DELETE'
-    }).then(() => {
+    apiDelete(`/api/todos/${id}`).then(() => {
       setTodos(todos.filter(t => t.id !== id))
     })
   }
