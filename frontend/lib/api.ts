@@ -4,7 +4,7 @@
  * - 本地开发：http://localhost:5000
  * - 线上部署：https://你的后端域名（如 render.com）
  */
-export const API_BASE_URL = 'https://你的后端域名.onrender.com'
+export const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000'
 
 export async function apiGet(path: string) {
   const res = await fetch(`${API_BASE_URL}${path}`)
